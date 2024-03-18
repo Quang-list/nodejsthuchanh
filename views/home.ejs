@@ -1,0 +1,30 @@
+<!-- home.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/header') %> <!-- Include header partial -->
+    <title>Danh sách sản phẩm</title>
+</head>
+<body>
+    <h1>Danh sách sản phẩm</h1>
+    <ul>
+        <% products.forEach(product => { %>
+            <li>
+                <strong>Mã sản phẩm:</strong> <%= product.maSanPham %><br>
+                <strong>Tên sản phẩm:</strong> <%= product.tenSanPham %><br>
+                <strong>Ngày sản phẩm:</strong> <%= product.ngaySanPham %><br>
+                <strong>Xuất xứ sản phẩm:</strong> <%= product.xuatXu %><br>
+                <strong>Giá sản phẩm:</strong> <%= product.gia %><br>
+                <strong>Số lượng sản phẩm:</strong> <%= product.soLuong %><br>
+                <!-- Add buttons for updating and deleting products -->
+                <a href="/update-product/<%= product._id %>">Cập nhật</a>
+                <a href="/delete-product/<%= product._id %>">Xóa</a>
+            </li>
+        <% }) %>
+    </ul>
+    <!-- Add form for adding new product -->
+    <a href="/add-product">Thêm sản phẩm mới</a>
+    <%- include('partials/footer') %> <!-- Include footer partial -->
+</body>
+</html>
